@@ -10,14 +10,20 @@ class MainActivity : AppCompatActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		// DataBinding in eine variable save machen
-		val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+		val binding: ActivityMainBinding =
+			DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-	binding.counterText.text = counter.toString()
-
-	binding.buttonText.setOnClickListener{
-		counter++
 		binding.counterText.text = counter.toString()
-	}
+
+		binding.btnMinus.setOnClickListener {
+			counter--
+			binding.counterText.text = counter.toString()
+		}
+		binding.btnPlus.setOnClickListener{
+			counter++
+			binding.counterText.text = counter.toString()
+		}
+
 	}
 
 }
